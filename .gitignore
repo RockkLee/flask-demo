@@ -1,0 +1,10 @@
+.idea/
+.venv/
+db-data/
+
+# Flask-specific ignores
+instance/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
