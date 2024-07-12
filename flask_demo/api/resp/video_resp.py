@@ -1,7 +1,6 @@
 from flask_restx import fields, Model
 
 video_resp = Model('VideoCreate', {
-    'id': fields.Integer,
     'name': fields.String,
     'likes': fields.Integer,
     'views': fields.Integer

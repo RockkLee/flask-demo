@@ -2,6 +2,7 @@ from typing import Optional
 
 from flask_sqlalchemy.session import Session
 
+from flask_demo.helper.exception import CustomException
 from flask_demo.helper.metaclass.singleton_meta import SingletonMeta
 from flask_demo.orm.dao.video_dao import VideoDao
 from flask_demo.orm.database import session
@@ -17,7 +18,7 @@ class VideoService(metaclass=SingletonMeta):
     def get_video_by_id(self, video_id: int, s: Session) -> VideoDto:
         video = self.__video_dao.get(video_id, s)
         if video is None:
-            raise Exception("Video not found")
+            raise CustomException("Video not found", 404)
         return VideoDtoMapper.from_video_model(video)
 
     @session

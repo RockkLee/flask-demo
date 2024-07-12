@@ -16,6 +16,7 @@ else:
 
 class Config(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    ERROR_404_HELP = False
 
 
 class ProdConfig(Config):

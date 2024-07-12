@@ -2,25 +2,25 @@
 from flask import Blueprint, request, jsonify
 from flask_restx import Resource, Api, Namespace
 
+from flask_demo.api.handler.handler import register_exception_handlers
 from flask_demo.api.req.video_update_req import video_update_req
 from flask_demo.api.req.video_create_req import video_create_req
 from flask_demo.api.resp.video_resp import VideoRespMapper, video_resp
 from flask_demo.service.dto.video_dto import VideoDto
 from flask_demo.service.video_service import VideoService
+from flask_demo.config import SWAGGER_DOC
 
 # use this for the blueprint implementation
-# from flask_demo.config import SWAGGER_DOC
-# video_bp = Blueprint('video_bp', __name__)
-# api = Api(video_bp, title="Directory API", version="0.1.0", add_specs=SWAGGER_DOC)
-# api.add_namespace(ns, path='/')
-
-# mount the namespace in app.py
+video_bp = Blueprint('video_bp', __name__)
+api = Api(video_bp, title="Directory API", version="0.1.0", doc=SWAGGER_DOC)
 ns = Namespace('video_ns', description='Version 1 API')
 ns.models = {
     # register request model
     video_create_req.name: video_create_req,
     video_update_req.name: video_update_req
 }
+api.add_namespace(ns, path="/")
+register_exception_handlers(api)
 
 
 class VideoApi(Resource):
