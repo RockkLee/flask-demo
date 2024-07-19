@@ -1,12 +1,8 @@
 from flask import Flask
-from flask_restx import Api
-
-from flask_demo.config import SWAGGER_DOC
 from flask_demo.orm.database import db_session
 from flask_cors import CORS
 from flask_demo.api.video_api import video_bp
-from flask_demo.api.video_api import ns as video_ns
-from flask_demo.config import flask_config
+from flask_demo.config.config import flask_config
 
 
 app = Flask(__name__)

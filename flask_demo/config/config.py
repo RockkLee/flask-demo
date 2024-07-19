@@ -9,9 +9,9 @@ DATABASE_URI = 'postgresql://%s:%s@%s:5432/postgres' % (_USER, _PASSWORD, _IP)
 SWAGGER_DOC = "/docs"  # to disable swagger doc, set it to "False"
 # flask config
 if __name__ == "__app__":
-    flask_config = "flask_demo.config.DevConfig"
+    flask_config = "flask_demo.config.config.DevConfig"
 else:
-    flask_config = "flask_demo.config.TestConfig"
+    flask_config = "flask_demo.config.config.TestConfig"
 
 
 class Config(object):

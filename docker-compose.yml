@@ -1,4 +1,10 @@
 services:
+    app:
+        image: flask-demo:latest
+        ports:
+            - "8080:8080"
+        networks:
+            flask-demo-net:
     db:
         image: postgres:13.2-alpine
         restart: always
@@ -11,3 +17,8 @@ services:
             - ./db-data:/var/lib/postgresql/data
         ports:
             - "5432:5432"
+        networks:
+            flask-demo-net:
+networks:
+    flask-demo-net:
+        name: flask-demo-net

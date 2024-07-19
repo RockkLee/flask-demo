@@ -8,7 +8,7 @@ from flask_demo.api.req.video_create_req import video_create_req
 from flask_demo.api.resp.video_resp import VideoRespMapper, video_resp
 from flask_demo.service.dto.video_dto import VideoDto
 from flask_demo.service.video_service import VideoService
-from flask_demo.config import SWAGGER_DOC
+from flask_demo.config.config import SWAGGER_DOC
 
 # use this for the blueprint implementation
 video_bp = Blueprint('video_bp', __name__)

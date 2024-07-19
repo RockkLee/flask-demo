@@ -3,7 +3,7 @@ from functools import wraps
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session, declarative_base
 
-from flask_demo.config import DATABASE_URI
+from flask_demo.config.config import DATABASE_URI
 
 engine = create_engine(DATABASE_URI)
 db_session = scoped_session(sessionmaker(autocommit=False,
